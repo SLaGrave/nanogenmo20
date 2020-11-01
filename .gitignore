@@ -1,6 +1,9 @@
 # Until the algorithm is complete I don't want to commit the output
 output.html
 
+# Ignore my VS Code workspace
+workspace.code-workspace
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
