@@ -24,3 +24,8 @@ The name will most likely be generated based on a format with specific words pul
  - NLP
  - Hook the gen script up to processing or blender or another similar software to generate a few plants for artwork throughout the text.
 ```
+
+---
+
+##### Requirements
+[pycorpora](https://github.com/aparrish/pycorpora)

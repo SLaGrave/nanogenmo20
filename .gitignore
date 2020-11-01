@@ -1,3 +1,6 @@
+# Until the algorithm is complete I don't want to commit the output
+output.html
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
