@@ -7,8 +7,8 @@ Purpose:        Helper functions used in generate.py
 
 def entry_for_flora(name):
     # TODO: Add logic
-    pass
+    return
 
 def entry_for_fauna(name):
     # TODO: Add logic
-    pass
+    return
