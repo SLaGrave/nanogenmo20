@@ -1,7 +1,6 @@
 # Whimsical Forest Field Guide
 For [NaNoGenMo 2020](https://github.com/NaNoGenMo/2020), I plan on writing code to generate a field guide to help you survive a magical, whimsical forest.
 
-Current output is [here](htmlpreview.github.io/?https://github.com/SLaGrave/nanogenmo20/blob/main/output.html).
 ---
 
 The current data was pulled from [this Project Gutenberg entry](https://www.gutenberg.org/ebooks/49513). It has been split up by me.
