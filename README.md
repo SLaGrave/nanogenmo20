@@ -1,5 +1,9 @@
 # Whimsical Forest Field Guide
-For NaNoGenMo 2020, I plan on writing code to generate a field guide to help you survive a magical, whimsical forest.
+For [NaNoGenMo 2020](https://github.com/NaNoGenMo/2020), I plan on writing code to generate a field guide to help you survive a magical, whimsical forest.
+
+---
+
+The current data was pulled from [this Project Gutenberg entry](https://www.gutenberg.org/ebooks/49513). It has been split up by me.
 
 ---
 
@@ -29,3 +33,9 @@ The name will most likely be generated based on a format with specific words pul
 
 ##### Requirements
 [pycorpora](https://github.com/aparrish/pycorpora)
+
+[markovify](https://github.com/jsvine/markovify)
+
+markdown library
+
+I use a style string that I pulled from [dillinger.io](dillinger.io)'s export as html.

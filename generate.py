@@ -6,53 +6,48 @@ Purpose:        To generate 50k words of text for NaNoGenMo2020
 """
 
 from utils import *
+import markdown
+from markdown.extensions.toc import TocExtension
 
-import random
+TITLE = "Whimsical Forest Field Guide"
+AUTHOR = "Sam LaGrave & his code."
+DESCRIPTION = 'A field guide to help you identify the "local" flora and fauna. Written for NaNoGenMo 2020.'
 
-from pycorpora import plants, colors, animals
+NUM_ENTRIES = 20
 
+desc_model = create_flora_markov("flora_texts/desc.txt")
+notes_model = create_flora_markov("flora_texts/notes.txt")
+place_model = create_flora_markov("flora_texts/place.txt")
+time_model = create_flora_markov("flora_texts/time.txt")
+virtues_model = create_flora_markov("flora_texts/virtues.txt")
+postnotes_model = create_flora_markov("flora_texts/postnotes.txt")
 
-# I want the output to be in a nice format. In the future I will likely try
-# to use a pdf library, or possibly output LaTeX that can generate nice
-# documents.
+text = "# " + TITLE + "\n - " + AUTHOR + "\n\n" + DESCRIPTION + "\n\n---\n\n[TOC]\n\n"
+flora = "## Flora\n---\n"
+for i in range(NUM_ENTRIES):
+    flora += entry_for_flora(desc_model, notes_model, place_model, time_model, virtues_model, postnotes_model)
+    if i != NUM_ENTRIES-1:
+        flora += "\n\n---\n"
 
-# Document constants
-HEADER = """Whimsical Forest Field Guide
-SLaGrave (and his code)
+text += flora
 
-A field guide to help you survive a magical, whimsical forest.\n\n
-"""
+# Style taken from the style used on dillinger.io html export
+with open("style.txt", "r") as f:
+    style = f.read()
+with open("output.html", "w") as f:
+    f.writelines(markdown.markdown(text, extensions=[TocExtension(title="Table of Contents")]))
+    f.writelines(style)
 
-# Modified a demo from the demo of pycorpora
-random_flowers = random.sample(plants.flowers["flowers"], 10)
-random_colors = random.sample([item['color'] for item in colors.crayola["colors"]], 10)
-flora_test = list()
-for p in zip(random_colors, random_flowers):
-    pair = p[0] + " " + p[1]
-    flora_test.append(pair)
+# with open("output.md", "w", encoding="utf8") as f:
+#     f.writelines(entries)
 
-random_animals = random.sample(animals.common["animals"], 10)
-random_colors = random.sample([item['color'] for item in colors.crayola["colors"]], 10)
-fauna_test = list()
-for p in zip(random_colors, random_animals):
-    pair = p[0] + " " + p[1]
-    fauna_test.append(pair)
+# markdown.markdownFromFile(
+#     input='output.md',
+#     output='output.html',
+#     encoding='utf8',
+# )
 
-Flora_TOC = [f"\t\t{pair}\n" for pair in flora_test]
-Fauna_TOC = [f"\t\t{pair}\n" for pair in fauna_test]
-
-# Writes the actual html document
-with open("output.txt", "w") as f:
-    f.writelines(HEADER)
-
-    f.writelines("Table of Contents:\n")
-    f.writelines("\tFlora\n")
-    for line in Flora_TOC:
-        f.writelines(line)
-    f.writelines("\tFauna\n")
-    for line in Fauna_TOC:
-        f.writelines(line)
-
-with open("output.txt", "r") as f:
-    data = f.read()
-print(f"Word Count: {len(data.split())}")
+# with open("style.txt", "r") as s:
+#     style = s.read()
+# with open("output.html", "a") as f:
+#     f.writelines(style)

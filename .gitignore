@@ -1,5 +1,6 @@
 # Until the algorithm is complete I don't want to commit the output
 output.txt
+output.md
 
 # Ignore my VS Code workspace
 workspace.code-workspace
