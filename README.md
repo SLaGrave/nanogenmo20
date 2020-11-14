@@ -3,7 +3,11 @@ For [NaNoGenMo 2020](https://github.com/NaNoGenMo/2020), I plan on writing code 
 
 ---
 
-The current data was pulled from [this Project Gutenberg entry](https://www.gutenberg.org/ebooks/49513). It has been split up by me.
+The current flora text was pulled from [this Project Gutenberg entry](https://www.gutenberg.org/ebooks/49513). It has been split up by me.
+
+The current fauna text was pulled from [this Project Gutenberg entry](https://www.gutenberg.org/ebooks/59475). It has been split up by me.
+
+Both of their introductions were used by a markov chain for my introduction.
 
 ---
 
